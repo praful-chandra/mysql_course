@@ -77,3 +77,49 @@
 #         stock_quantity," in stock.") AS 'quantity'
 #     FROM books;
 
+# INSERT INTO books
+#     (title, author_fname, author_lname, released_year, stock_quantity, pages)
+#     VALUES ('10% Happier', 'Dan', 'Harris', 2014, 29, 256), 
+#            ('fake_book', 'Freida', 'Harris', 2001, 287, 428),
+#            ('Lincoln In The Bardo', 'George', 'Saunders', 2017, 1000, 367);
+           
+           
+
+# SELECT DISTINCT author_fname FROM books;
+
+# SELECT DISTINCT CONCAT_WS(' ',author_fname,author_lname) AS 'author' FROM books;
+
+# SELECT DISTINCT author_fname , author_lname FROM books;
+
+           
+# SELECT title FROM books ORDER BY title;        
+# SELECT title FROM books ORDER BY title DESC;           
+
+# SELECT title,author_fname,author_lname FROM books ORDER BY 3,2; # 3 and 2 reffers to the selected columns in that order.
+           
+# SELECT  * FROM books ORDER BY released_year DESC LIMIT 0,18548761304;         
+
+
+# SELECT author_fname FROM books WHERE author_fname LIKE '%da%';
+
+# SELECT title AS 'Book Title' FROM books WHERE title LIKE '%the%' ORDER BY released_year LIMIT 4;
+
+# SELECT title,stock_quantity FROM books WHERE stock_quantity LIKE '___';
+
+# SELECT title FROM  books WHERE title LIKE '%\%%';
+# SELECT title FROM  books WHERE title LIKE '%\_%';
+
+
+# SELECT title FROM books WHERE title LIKE '%stories%';
+
+# SELECT title,pages FROM books ORDER BY 2 DESC LIMIT 1;
+
+# SELECT CONCAT_WS(" - ",title,released_year) AS 'summary' FROM books ORDER BY released_year DESC LIMIT 0,3;
+
+# SELECT title,author_lname FROM books WHERE author_lname LIKE '% %';
+
+# SELECT title,released_year,stock_quantity FROM books ORDER BY 3 LIMIT 0,3;
+
+# SELECT title,author_lname FROM books ORDER BY author_lname,title;
+
+SELECT UPPER(CONCAT('MY FAVOURITE AUTHOR IS ',author_fname,' ',author_lname,'!')) AS 'yell' FROM books ORDER BY author_lname;
