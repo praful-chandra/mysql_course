@@ -122,4 +122,4 @@
 
 # SELECT title,author_lname FROM books ORDER BY author_lname,title;
 
-SELECT UPPER(CONCAT('MY FAVOURITE AUTHOR IS ',author_fname,' ',author_lname,'!')) AS 'yell' FROM books ORDER BY author_lname;
+# SELECT UPPER(CONCAT('MY FAVOURITE AUTHOR IS ',author_fname,' ',author_lname,'!')) AS 'yell' FROM books ORDER BY author_lname;
