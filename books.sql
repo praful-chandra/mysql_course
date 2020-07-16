@@ -136,3 +136,63 @@
 # SELECT CONCAT(author_fname,' ',author_lname) AS 'full name',pages FROM books ORDER BY pages DESC LIMIT 1;
 
 # SELECT released_year AS 'year',COUNT(*) AS '# books',AVG(pages) AS 'avg pages' FROM books GROUP BY released_year;
+
+
+
+# SELECT title,released_year,
+#     CASE
+#         WHEN released_year > 2000 THEN 'modern Lit'
+#         ELSE '20th Century Lit'
+#     END AS 'Genere'
+# FROM books;
+
+# SELECT title, released_year,
+#        CASE 
+#          WHEN released_year >= 2000 THEN 'Modern Lit'
+#          ELSE '20th Century Lit'
+#        END AS GENRE
+# FROM books;
+
+
+
+# SELECT title, stock_quantity,
+#     CASE 
+#         WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+#         WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+#         WHEN stock_quantity BETWEEN 101 AND 150 THEN '***'
+#         ELSE '****'
+#     END AS STOCK
+# FROM books;
+
+
+
+
+
+
+
+
+
+
+# SELECT * FROM books WHERE released_year < 1980;
+
+# SELECT * FROM books WHERE author_lname IN ('eggers','chabon');
+
+# SELECT * FROM books WHERE author_lname = 'lahiri' AND released_year >2000;
+
+# SELECT * FROM books WHERE pages BETWEEN 100 AND 200;
+
+# SELECT * FROM books WHERE author_lname  LIKE 'C%' OR author_lname LIKE 'S%';
+
+# SELECT title,author_lname , 
+#     CASE
+#         WHEN title LIKE '%stories%' THEN 'Short Stories'
+#         WHEN title LIKE '%just kids%' OR title LIKE '%A Heartbreaking Work%' THEN 'memoir'
+#         ELSE 'Novel'
+#     END AS 'Genere'
+# FROM books;
+
+SELECT author_fname,author_lname,CASE
+    WHEN count(*) = 1 THEN '1 Book'
+    ELSE CONCAT(COUNT(*),' Books')
+    END AS 'Books'
+FROM books GROUP BY author_fname,author_lname;
